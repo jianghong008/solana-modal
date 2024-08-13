@@ -1,0 +1,13 @@
+{
+  "name": "solana-modal",
+  "version": "0.0.1",
+  "description": "solana-modal",
+  "workspaces": [
+    "core",
+    "packages/solana-modal"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=core",
+    "publish": "npm publish --access=public --workspace=packages/solana-modal"
+  }
+}

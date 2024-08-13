@@ -1,0 +1,46 @@
+{
+  "name": "solana-modal",
+  "version": "0.0.1",
+  "description": "A modal connection tool based on the official Solana package, simple and easy to use.",
+  "homepage": "",
+  "type": "module",
+  "module": "momoai-sdk.js",
+  "main": "momoai-sdk.cjs",
+  "exports": {
+    ".": {
+      "import": "./momoai-sdk.js",
+      "require": "./momoai-sdk.cjs",
+      "types": "./sdk.d.ts"
+    }
+  },
+  "files": [
+    "**/*"
+  ],
+  "types": "modal.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "solana",
+    "connect",
+    "modal",
+    "Web3"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && powershell ./scripts/build.bat",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-standard-wallet-adapter-base": "^1.1.2",
+    "@wallet-standard/core": "^0.0.0-20240703212708",
+    "solid-js": "^1.8.19"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vite-plugin-solid": "^2.10.2"
+  }
+}

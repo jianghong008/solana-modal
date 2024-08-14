@@ -1,0 +1,28 @@
+@media (prefers-color-scheme: dark) {
+    .modal-mask{
+        border-color: rgba(136,136,136,0.2);
+        background-color: rgba(0, 0, 0, 0.2);
+        color: rgb(255, 255, 255);
+    }
+
+    .modal-container{
+        border-color: #3a4565;
+        background-color: #1a1d25;
+    }
+
+}
+
+@media (prefers-color-scheme: light) {
+    .modal-mask{
+        border-color: rgba(136,136,136,0.2);
+        background-color: rgba(255, 255, 255, 0.2);
+        color: rgb(0, 0, 0);
+    }
+
+    .modal-container{
+        border-color: #c0c0c0;
+        background: #f9f9f9;
+    }
+
+}
+  

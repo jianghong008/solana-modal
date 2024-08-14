@@ -5,10 +5,13 @@ export default defineConfig({
   plugins: [solid()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/solana-modal.tsx'),
       name: 'solana-modal',
       formats: ['cjs', 'es', 'umd'],
     },
     outDir: '../packages/solana-modal',
-  }
+  },
+  optimizeDeps: {
+    force: true,
+  },
 })

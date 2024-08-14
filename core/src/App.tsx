@@ -1,10 +1,11 @@
 import { createSignal, onMount } from 'solid-js'
 import './App.css'
-import { SolanaModal } from './solana-modal'
+import SolanaModal from './solana-modal'
 const modal = SolanaModal.init({
   rpc: 'https://api.devtnet.solana.com',
-  autoConnect: true,
+  autoConnect: false,
 })
+
 function App() {
   const [address, setAddress] = createSignal('')
   const [msg, setMsg] = createSignal('')

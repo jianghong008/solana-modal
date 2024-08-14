@@ -4,13 +4,13 @@
   "description": "A modal connection tool based on the official Solana package, simple and easy to use.",
   "homepage": "",
   "type": "module",
-  "module": "momoai-sdk.js",
-  "main": "momoai-sdk.cjs",
+  "module": "solana-modal.js",
+  "main": "solana-modal.cjs",
   "exports": {
     ".": {
-      "import": "./momoai-sdk.js",
-      "require": "./momoai-sdk.cjs",
-      "types": "./sdk.d.ts"
+      "import": "./solana-modal.js",
+      "require": "./solana-modal.cjs",
+      "types": "./modal.d.ts"
     }
   },
   "files": [
@@ -27,6 +27,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && powershell ./scripts/build.bat",
+    "type": "tsc --project ./tsconfig.type.json",
     "preview": "vite preview"
   },
   "dependencies": {

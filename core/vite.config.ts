@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/solana-modal.tsx'),
-      name: 'solana-modal',
+      name: 'SolanaModal',
       formats: ['cjs', 'es', 'umd'],
     },
     outDir: '../packages/solana-modal',

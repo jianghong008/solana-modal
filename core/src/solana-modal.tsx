@@ -33,7 +33,7 @@ export interface SolanaModalOptions {
     httpHeaders?: Record<string, string>
     autoConnect?: boolean
 }
-export class SolanaModal {
+export default class SolanaModal {
     private static _instance?: SolanaModal
     private options?: SolanaModalOptions
     private wallets: Wallets

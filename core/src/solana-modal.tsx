@@ -7,9 +7,8 @@ import { PublicKey, Transaction, Connection, SystemProgram, LAMPORTS_PER_SOL } f
 import { base58 } from '@scure/base';
 import {
     isWalletAdapterCompatibleStandardWallet,
-    WalletAdapter,
     SignerWalletAdapter,
-    MessageSignerWalletAdapter
+    MessageSignerWalletAdapter,
 } from '@solana/wallet-adapter-base'
 
 export type ModalEventTypeMap = {
@@ -17,7 +16,7 @@ export type ModalEventTypeMap = {
     DISCONNECT: undefined
 }
 
-type EventKeys = keyof ModalEventTypeMap;
+export type EventKeys = keyof ModalEventTypeMap;
 
 type EventMap = {
     [key in EventKeys]?: ((arg: ModalEventTypeMap[key]) => void)[]
@@ -34,18 +33,30 @@ export interface SolanaModalOptions {
     autoConnect?: boolean
 }
 export default class SolanaModal {
+    /**@internal */
     private static _instance?: SolanaModal
+    /**@internal */
     private options?: SolanaModalOptions
+    /**@internal */
     private wallets: Wallets
-    public walletsOptions: Map<string, WalletAdapter> = new Map()
+    public walletsOptions: Map<string, StandardWalletAdapter> = new Map()
+    /**@internal */
     private activeWallet: string = ''
+    /**@internal */
     private root?: HTMLDivElement
+    /**@internal */
     private rootId = 'web3-solana-modal-root'
+    /**@internal */
     private setModalShow?: Setter<boolean>
+    /**@internal */
     private setModalLoading?: Setter<boolean>
+    /**@internal */
     private modalLoading = false
+    /**@internal */
     private events: EventMap = {}
+    /**@internal */
     private error: Error | undefined
+    /**@internal */
     private connect_cache_key = 'solana_modal_connect_cache_key'
     public connection?: Connection
     /**
@@ -89,7 +100,7 @@ export default class SolanaModal {
         }
         return SolanaModal._instance
     }
-
+    /**@internal */
     private initModal() {
         const el = document.getElementById(this.rootId)
         if (el) {
@@ -108,7 +119,7 @@ export default class SolanaModal {
         render(() => <WalletModal loading={modalLoading} show={modalShow} closeModal={this.closeModal.bind(this)} options={this.walletsOptions} onSelect={this.onSelect.bind(this)} />, this.root)
     }
 
-
+    /**@internal */
     private async refleshWallets() {
         this.wallets = getWallets()
         this.wallets.get().forEach((wallet: any) => {
@@ -140,7 +151,7 @@ export default class SolanaModal {
             this.emit('CONNECT', wallet.publicKey)
         }
     }
-
+    /**@internal */
     private async onSelect(name: string) {
         this.activeWallet = name
         this.setModalLoading?.call(this, true)
@@ -275,7 +286,7 @@ export default class SolanaModal {
         const signer = wallet as SignerWalletAdapter
         return await signer.signAllTransactions(transactions)
     }
-
+    /**@internal */
     private waiteTimeout(t = 1000) {
         return new Promise(resolve => setTimeout(resolve, t))
     }
@@ -311,7 +322,7 @@ export default class SolanaModal {
         this.setModalShow?.call(this, false)
         this.setModalLoading?.call(this, false)
         if (isErr) {
-            this.error = Error(' User rejected the request')
+            this.error = Error('User canceled')
         }
 
     }
@@ -345,7 +356,7 @@ export default class SolanaModal {
             handlers.splice(index, 1)
         }
     }
-
+    /**@internal */
     private emit<T extends EventKeys>(event: T, arg: ModalEventTypeMap[T]) {
         if (!this.events[event]) {
             return

@@ -1,5 +1,14 @@
 ## solana modal
 A modal connection tool based on the official Solana package, simple and easy to use.
+
+### preview
+dark
+![dark](./screen-dark.png)
+light
+![dark](./screen-light.png)
+
+[demo](https://jianghong008.github.io/solana-modal/)
+
 ### Usage
 
 ```bash

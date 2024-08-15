@@ -1,6 +1,6 @@
 import { Adapter } from "@solana/wallet-adapter-base";
-import './assets/modal.css'
 import { Accessor, createEffect, createSignal } from "solid-js";
+import './assets/modal.css'
 import loadingSvg from './assets/loading.svg'
 type ModalOptions = {
     loading: Accessor<boolean>
@@ -50,15 +50,17 @@ export function WalletModal(opt: ModalOptions) {
             </h3>
             <ul class="flex flex-col gap-2 max-h-96 overflow-y-auto" style={loading() ? 'display:none' : 'display:block'}>
                 {
-                    wallets().map((wallet: Adapter) => <li>
-                        <button class="wallet-item bg-transparent w-full flex justify-between items-center focus:outline-0" onclick={() => onSelect(wallet.name)}>
+                    wallets().map((wallet: Adapter) => <li class="my-2">
+                        <button class="wallet-item bg-transparent w-full flex justify-between px-3 py-2 items-center focus:outline-0" onclick={() => onSelect(wallet.name)}>
+                            
+                            {/* <span class=" text-xs text-[#009688]">
+                                Detected
+                            </span> */}
+                            <span>{wallet.name}</span>
                             <i class="flex items-center gap-2">
                                 <img class=" w-7 h-7" src={wallet.icon} alt={wallet.name} />
-                                <span>{wallet.name}</span>
+                                
                             </i>
-                            <span class=" text-xs text-[#009688]">
-                                Detected
-                            </span>
                         </button>
                     </li>)
                 }

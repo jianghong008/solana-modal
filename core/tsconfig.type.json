@@ -6,6 +6,9 @@
         "skipLibCheck": true,
         "skipDefaultLibCheck":true,
         "jsx": "preserve",
-        "declarationDir": "./types"
+        "declarationDir": "./types",
+        "stripInternal": true,
+        "strictPropertyInitialization": false,
+        "allowImportingTsExtensions": true
     }
 }

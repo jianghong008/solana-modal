@@ -170,24 +170,25 @@ export default class SolanaModal {
      * @param name wallet name
      * @returns 
      */
-    public async connect(name: string) {
+    public async connect(name?: string) {
         this.error = undefined
-        this.activeWallet = name
-        const wallet = this.walletsOptions.get(name)
+        if (name) {
+            this.activeWallet = name
+            localStorage.setItem(this.connect_cache_key, name)
+        }
+        const wallet = this.walletsOptions.get(this.activeWallet)
         if (wallet) {
             await wallet.disconnect()
             await this.waiteTimeout(700)
             await wallet.connect()
             await this.waiteTimeout(400)
         } else {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
 
         if (!wallet.publicKey) {
             throw new Error('wallet connect failed')
         }
-
-        localStorage.setItem(this.connect_cache_key, name)
 
         wallet.on('disconnect', () => {
             this.emit('DISCONNECT', undefined)
@@ -206,7 +207,7 @@ export default class SolanaModal {
         if (wallet) {
             await wallet.disconnect()
         } else {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
     }
     /**
@@ -217,7 +218,7 @@ export default class SolanaModal {
     public async signMessage<T>(message: string | Uint8Array): Promise<T> {
         const wallet = this.walletsOptions.get(this.activeWallet)
         if (!wallet) {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
         if (!wallet.connected) {
             throw new Error('wallet not connected')
@@ -241,7 +242,7 @@ export default class SolanaModal {
     public async signTransaction(transaction: Transaction) {
         const wallet = this.walletsOptions.get(this.activeWallet)
         if (!wallet) {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
         if (!wallet.connected) {
             throw new Error('wallet not connected')
@@ -257,7 +258,7 @@ export default class SolanaModal {
     public async signAndSendTransaction(transaction: Transaction) {
         const wallet = this.walletsOptions.get(this.activeWallet)
         if (!wallet) {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
         if (!wallet.connected) {
             throw new Error('wallet not connected')
@@ -278,7 +279,7 @@ export default class SolanaModal {
     public async signAllTransactions(transactions: Transaction[]) {
         const wallet = this.walletsOptions.get(this.activeWallet)
         if (!wallet) {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
         if (!wallet.connected) {
             throw new Error('wallet not connected')
@@ -301,7 +302,7 @@ export default class SolanaModal {
         while (this.modalLoading) {
             await this.waiteTimeout(300)
         }
-        
+
         this.closeModal()
         if (this.error) {
             throw this.error
@@ -380,7 +381,7 @@ export default class SolanaModal {
         }
         const wallet = this.walletsOptions.get(this.activeWallet)
         if (!wallet) {
-            throw new Error('wallet not found')
+            throw new Error('please select wallet')
         }
         if (!wallet.publicKey) {
             throw new Error('wallet not connected')

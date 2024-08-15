@@ -1,9 +1,12 @@
 ## solana modal
-A modal connection tool based on the official Solana package, simple and easy to use.
+
+使用官方库简单制作的solana连接模态框，官方只有react版的，此库不限框架。
 
 ### preview
+
 dark
 ![dark](./core/public/screen-dark.png)
+
 light
 ![dark](./core/public/screen-light.png)
 

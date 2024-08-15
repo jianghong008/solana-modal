@@ -51,7 +51,7 @@ export function WalletModal(opt: ModalOptions) {
             <ul class="flex flex-col gap-2 max-h-96 overflow-y-auto" style={loading() ? 'display:none' : 'display:block'}>
                 {
                     wallets().map((wallet: Adapter) => <li class="my-2">
-                        <button class="wallet-item bg-transparent w-full hover:border-[#646cff] border-[1px] rounded-sm flex justify-between px-3 py-2 items-center focus:outline-0" onclick={() => onSelect(wallet.name)}>
+                        <button class="wallet-item bg-transparent w-full border-transparent hover:border-[#646cff] border-[1px] rounded-sm flex justify-between px-3 py-2 items-center focus:outline-0" onclick={() => onSelect(wallet.name)}>
                             
                             {/* <span class=" text-xs text-[#009688]">
                                 Detected

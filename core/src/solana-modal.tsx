@@ -301,14 +301,15 @@ export default class SolanaModal {
         while (this.modalLoading) {
             await this.waiteTimeout(300)
         }
+        
+        this.closeModal()
+        if (this.error) {
+            throw this.error
+        }
 
         const wallet = this.walletsOptions.get(this.activeWallet)
         if (!wallet) {
             throw new Error('wallet not found')
-        }
-        this.closeModal()
-        if (this.error) {
-            throw this.error
         }
 
         return wallet.publicKey

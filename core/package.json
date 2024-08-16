@@ -31,6 +31,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && powershell ./scripts/build.bat",
     "type": "tsc --project ./tsconfig.type.json",
+    "demo": "tsc -b && vite build --mode=demo",
     "preview": "vite preview"
   },
   "dependencies": {

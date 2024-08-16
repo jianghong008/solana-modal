@@ -1,6 +1,6 @@
 {
   "name": "solana-modal",
-  "version": "0.0.62",
+  "version": "0.0.63",
   "description": "A modal connection tool based on the official Solana package, simple and easy to use.",
   "repository": {
     "type": "git",

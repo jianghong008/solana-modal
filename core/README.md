@@ -7,11 +7,11 @@ A modal connection tool based on the official Solana package, simple and easy to
 
 dark
 
-![dark](./screen-dark.png)
+![dark](https://jianghong008.github.io/solana-modal/screen-dark.png)
 
 light
 
-![dark](./screen-light.png)
+![dark](https://jianghong008.github.io/solana-modal/screen-light.png)
 
 [demo](https://jianghong008.github.io/solana-modal/)
 

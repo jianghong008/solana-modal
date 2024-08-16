@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
   }
   if (mode == 'demo') {
     delete config.build?.lib
+    config.base = '/solana-modal/'
   }
   return config
 })

@@ -1,30 +1,136 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.web3-solana-modal *{
+    padding: 0;
+    margin: 0;
+}
+.web3-solana-modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.web3-solana-modal .modal-container{
+    padding: 2rem 1.5rem;
+    max-width: 24rem;
+    border-radius: 0.75rem;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.web3-solana-modal .close-btn{
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.web3-solana-modal .close-btn button{
+    background: none;
+    border: none;
+    outline: none;
+    display: block;
+    padding: 0.25rem;
+    fill: #667b97;
+}
+
+.web3-solana-modal .close-btn button:hover{
+    cursor: pointer;
+    outline: none;
+}
+
+.web3-solana-modal .close-btn svg{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.web3-solana-modal .title{
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: normal;
+}
+
+.web3-solana-modal .list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 24rem;
+    overflow-y: auto;
+}
+
+.web3-solana-modal .wallet-item{
+    background: none;
+    width: 100%;
+    border-color: transparent;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+}
+
+.web3-solana-modal .wallet-item img{
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.web3-solana-modal .wallet-item:hover{
+    border-color: #646cff;
+    outline-width: 0px;
+    cursor: pointer;
+}
+
+.web3-solana-modal .spinner{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.web3-solana-modal .spinner img{
+    width: 3rem;
+    height: 3rem;
+}
+
 @media (prefers-color-scheme: dark) {
-    .modal-mask{
+    .web3-solana-modal .modal-mask{
         border-color: rgba(136,136,136,0.2);
         background-color: rgba(0, 0, 0, 0.2);
         color: rgb(255, 255, 255);
     }
 
-    .modal-container{
+    .web3-solana-modal .modal-container{
         border-color: #3a4565;
         background-color: #1a1d25;
+    }
+
+    .web3-solana-modal .close-btn button:hover{
+        fill: #ffffff;
     }
 
 }
 
 @media (prefers-color-scheme: light) {
-    .modal-mask{
+    .web3-solana-modal .modal-mask{
         border-color: rgba(136,136,136,0.2);
         background-color: rgba(255, 255, 255, 0.2);
         color: rgb(0, 0, 0);
     }
 
-    .modal-container{
+    .web3-solana-modal .modal-container{
         border-color: #c0c0c0;
         background: #f9f9f9;
+    }
+
+    .web3-solana-modal .close-btn button:hover{
+        fill: #0f0f11;
     }
 
 }

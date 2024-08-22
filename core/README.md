@@ -1,7 +1,9 @@
 ## solana modal
 A modal connection tool based on the official Solana package, simple and easy to use.
 
-🫠😬**Sorry, v0.0.5 is incorrect and cannot be used. It was a mistake I uploaded.**
+🫠😬***Sorry, v0.0.5 is incorrect and cannot be used. It was a mistake I uploaded.***
+
+*Please use version **v0.0.6** or higher!*
 
 ### preview
 

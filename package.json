@@ -9,6 +9,6 @@
   "scripts": {
     "dev": "npm run dev --workspace=core",
     "demo": "npm run demo --workspace=core",
-    "publish": "npm publish --access=public --workspace=packages/solana-modal"
+    "publish": "powershell ../scripts/publish.ps1"
   }
 }
